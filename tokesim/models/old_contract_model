@@ -1,0 +1,44 @@
+from abc import abstractmethod
+
+from mesa import Model
+from mesa.datacollection import DataCollector
+from mesa.space import ContinuousSpace
+from mesa.time import RandomActivation
+import numpy as np
+
+from tokesim.types.types import AgentPosition
+
+
+class ContractModel(Model):
+    """
+    TokenContract model class. Handles agent creation, placement and scheduling.
+    """
+
+    def __init__(self, model_config: ModelConfig = None):
+        """
+        Create a new Flockers model.
+        Args:
+            population: Number of Boids
+            width, height: Size of the space.
+            speed: How fast should the Boids move.
+            vision: How far around should each Boid look for its neighbors
+            separation: What's the minimum distance each Boid will attempt to
+                    keep from any other
+            cohere, separate, match: factors for the relative importance of
+                    the three drives.        """
+        # ContinuousSpace(width, height, True)
+        # self.population = population
+        # self.total_wealth = 0
+        # self.schedule = RandomActivation(self)
+        # self.space = model_config.space
+        super().__init__()
+        self.model_config = model_config
+
+    def initialize_agents(self, model_config: ModelConfig):
+        self.agents = self.make_agents(model_config.accounts["accounts"])
+        self.schedule_agents(self.model_config.space, self.agents)
+        self.place_agents(model_config.space, self.agents)
+        self.running = True
+
+    def step(self):
+        self.model_config.schedule.step()

@@ -1,0 +1,97 @@
+{
+  "$id": "tokesim-model-config-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A tokesim model configuration schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "chain_type": {
+     "$ref": "#/definitions/ChainType" 
+    },
+    "contract_config" : {
+       "$ref": "#/definitions/ContractConfig"   
+    },
+    "model": {
+      "$ref": "#/definitions/ModelConfig"
+    },
+    "accounts_path" : {
+      "type": "string"
+    },
+    "$schema": {
+      "type":"string"
+    }
+  },
+  "required": [
+    "version",
+    "chain_type",
+    "contract_config",
+    "model"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "ChainType": {
+        "type":"string",
+        "pattern": "^ethereum$"
+    },
+    "ModelParams": {
+      "type":"object"
+    },
+    "ModelConfig": {
+      "type":"object",
+      "properties": {
+        "package": {
+          "$ref": "#/definitions/ModelModuleConfig"
+        },
+        "params":{
+          "$ref" : "#/definitions/ModelParams"
+        },
+        "config": {
+          "$ref" : "#/definitions/ModelModuleConfig"
+        },
+        "dashboard": {
+          "$ref": "#/definitions/ModelModuleConfig"
+        }
+      }
+    },
+    "ModelModuleConfig": {
+      "type":"object",
+      "properties": {
+        "module_name": {
+          "type":"string"
+        },
+        "module_path": {
+          "type":"string"
+        },
+        "class_name": {
+          "type":"string"
+        }
+      }
+    },
+    "ContractConfig": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/EthereumContractConfig"
+        }
+      ]      
+    },
+    "EthereumContractConfig": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "abi_path": {
+            "type": "string"
+          },
+          "bytecode_path": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }        
+        }
+      }
+    }
+  }
+}
