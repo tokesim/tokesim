@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../tokesim/config/config_schema.json",
+  "chain_type": "ethereum",
+  "contract_config": [
+    {
+      "name": "TestToken",
+      "abi_path": "./tests/fixtures/contracts/TestToken_abi.json",
+      "bytecode_path": "./tests/fixtures/contracts/TestToken.bin"
+    }
+  ],
+  "accounts_path": "./tests/fixtures/config/accounts.json",
+  "model": {
+    "package": {
+      "class_name": "DummyModel",
+      "module_name": "tests.fixtures.dummy_simulation",
+      "module_path": "."
+    },
+    "dashboard": {
+      "class_name": "DummyDashboard",
+      "module_name": "tests.fixtures.dummy_dashboard",
+      "module_path": "."
+
+    },
+    "config": {
+      "class_name": "DummyTokenConfig",
+      "module_name": "tests.fixtures.dummy_token_config",
+      "module_path": "."
+    },
+    "params": {
+      "number": 1,
+      "string": "two"
+    }
+  },
+  "version": "version-1"
+}

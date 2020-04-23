@@ -1,0 +1,18 @@
+from abc import abstractmethod
+
+
+from tokesim.config.types import ModelConfig
+from tokesim.models.contract_model import ContractModel
+
+
+class EthereumContractModel(ContractModel):
+    def __init__(self, config: ModelConfig = None, rpcPort=None, chainId=None):
+        super().__init__(config)
+        self.rpcPort = rpcPort
+        self.chainId = chainId
+        self.contract_config = config.contract_config
+        self.deploy()
+
+    @abstractmethod
+    def deploy(self):
+        pass

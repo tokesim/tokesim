@@ -1,0 +1,64 @@
+import numpy as np
+from web3 import HTTPProvider, Web3
+
+from tokesim.config.types import ModelConfig
+from tokesim.models.ethereum_contract_model import EthereumContractModel
+
+
+
+class TestTokenModel(EthereumContractModel):
+    def __init__(self, config: ModelConfig = None, rpcPort: int = 0, chainId=None):
+        super().__init__(config=config, rpcPort=rpcPort, chainId=chainId)
+        self.contract_config = config.contract_config
+
+    def make_agents(self, accounts):
+        """
+        Create self.population agents, with random positions and starting headings.
+        """
+        for i in range(self.population):
+            tokenAgent = TokenAgent(i, x, y, self)
+            self.space.place_agent(tokenAgent, pos)
+            self.schedule.add(tokenAgent)
+
+    def place_agents(self, space, agents):
+        for agent in agents:
+            x = self.random.random() * self.model_config.space.x_max
+            y = self.random.random() * self.model_config.space.y_max
+            space.place_agent(agent, np.array(x, y))
+
+    def schedule_agents(self, schedule, agents):
+        [schedule.add_agent(agent) for agent in agents]
+
+    def step(self):
+        self.schedule.step()
+
+    def deploy(self):
+        master = self.model_config.accounts["master"]
+        token_contract = self.contract_config[0]
+        w3 = Web3(HTTPProvider(f"http://localhost:{self.rpcPort}"))
+
+        SimulatedContract = w3.eth.contract(
+            abi=token_contract["abi"], bytecode=token_contract["bytecode"]
+        )
+        master_acct_addr = Web3.toChecksumAddress(master["pub_addr"])
+
+        tx_hash = SimulatedContract.constructor("Gold", "GLD", 18, 1000).transact(
+            {"from": master_acct_addr}
+        )
+        tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+        goldToken = w3.eth.contract(
+            address=tx_receipt.contractAddress, abi=token_contract.abi
+        )
+
+        print(f" Deployed with token supply:{goldToken.functions.totalSupply().call()}")
+        # TODO
+        """
+        tx = goldToken.functions.mint(master_acct_addr, 50000).buildTransaction( {
+            'from': master_acct_addr,
+            'nonce': w3.eth.getTransactionCount(master_acct_addr) 
+        })
+
+        signed = w3.eth.account.signTransaction(tx, master["private_key"])
+        tx_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
+        tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+        """

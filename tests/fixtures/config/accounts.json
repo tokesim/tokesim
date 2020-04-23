@@ -1,0 +1,34 @@
+{
+    "master": {
+        "private_key": "0x9f624dee9b9201857ac4d6884384c5f3c6459003f6eebb4c1a7ecaa98ea9dc34",
+        "pub_addr": "0x0c157851beeb2d9cdb91f99e3a371a364a257082",
+        "balance": "0x5f5e100"
+    },
+    "accounts": [
+        {
+            "private_key": "0x76460be3620e5bee7bb7567a0e488784f1188692668b956fe5756800e3a46456",
+            "pub_addr": "0x35b5965ad906dbe73a541aeba98fcda4707fcf2d",
+            "balance": "0x5f5dde4"
+        },
+        {
+            "private_key": "0xe52790dab7f37acd5f62404cfdc1d5c4338b46699ebbf59872a27ec24b80386a",
+            "pub_addr": "0x19ccd11b520707c3a90d3a99fcbdc2ffc8b9c0ff",
+            "balance": "0x5f5dc59"
+        },
+        {
+            "private_key": "0x9e6357d378392d4f2858273c20cbe7666e16a0c40596498ff4a3337a025fd2b9",
+            "pub_addr": "0x67c7cd0df63b4a836a26972615f2e33e99ed7213",
+            "balance": "0x5f5e079"
+        },
+        {
+            "private_key": "0xea8e319cf731d476bd603ab90ee42602e6688567f88b70524c38621998fd8a65",
+            "pub_addr": "0x905871b43416b0b9a8bcc6b09c493f4b1cf1f6c7",
+            "balance": "0x5f5e2cb"
+        },
+        {
+            "private_key": "0xcf3511800497f43953ffc75ab5a1836f7e8d667e9f95822c8812c4ab6edbb19d",
+            "pub_addr": "0x971dd49ebd2aa266d7d95bd46aebe83f6305d85c",
+            "balance": "0x5f5e0c4"
+        }
+    ]
+}
