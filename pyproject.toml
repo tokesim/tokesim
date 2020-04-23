@@ -11,7 +11,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "tokesim"
-version = "0.0.0"
+version = "0.1.0"
 description = "A tool for building shareable Multi-Agent tokenomic models"
 
 license = "Apache 2.0"
