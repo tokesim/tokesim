@@ -6,10 +6,10 @@
   <p align="center">
     A Tokeneconomics Simulator.
     <br />
-    <a href="https://youtube.com/">View Demo</a>
-    ·
+    <a href="https://youtu.be/P0yYu6v5H_Q">View Demo</a>
+   
     <!-- <a href="https://github.com/tokesim/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>-->
-    ·
+    
     <!-- <a href="https://github.com/tokesim/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a> -->
   </p>
 </center>
