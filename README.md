@@ -6,7 +6,7 @@
   <p align="center">
     A Tokeneconomics Simulator.
     <br />
-    <a href="https://youtu.be/P0yYu6v5H_Q">View Demo</a>
+    <a href="https://youtu.be/C8aTCxe9g2U">View Demo</a>
   </p>
 </center>
 
