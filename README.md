@@ -26,10 +26,10 @@
 <!-- about the project -->
 ## About The Project
 
-[Tokesim](https://tokesim.org) is an Agent Based Modeling tool that makes it easy to test token economic models. It's built using [mesa-behaviors](https://github.com/mesa_behaviors) an extension to [Mesa](https://github.com/mesaproject/mesa) ABM framework bring more type hints and patterns to make models,agents,utility functions and strategies shareable and more extensible.  The goal of Tokesim is to help developers run simulations against Smart Contracts, in a block chain agnostic way, using shreable and reusable modules and libraries to do so. 
+[Tokesim](https://github.com/tokesim/tokesim) is an Agent Based Modeling tool that makes it easy to test token economic models. It's built using [mesa-behaviors](https://github.com/tokesim/mesa_behaviors) an extension to [Mesa](https://github.com/mesaproject/mesa) that makes models,agents,utility functions and strategies shareable and more extensible.  The goal of Tokesim is to help developers run simulations against smart contracts, in a blockchain agnostic way, using shareable and reusable modules and libraries to do so. 
 
 Tokesim Features:
-- Typehints to make agents and models extensible 
+- Type hints to make agents and models extensible 
 - Ability to run against and simulation against your smart contracts
 - An architecture to make the simulations portable to multiple chains
 - ChartJS integration from Mesa framework
